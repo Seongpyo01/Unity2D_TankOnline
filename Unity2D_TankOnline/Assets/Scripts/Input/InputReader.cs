@@ -10,7 +10,7 @@ public class InputReader : ScriptableObject, IPlayerActions
 {
     private Controls controls;
 
-    public event Action<bool> PrimaryFireEvent;
+    public event Action<bool> primaryFireEvent;
     public event Action<Vector2> moveEvent;
     public Vector2 aimPosition { get; private set; }
 
@@ -41,11 +41,11 @@ public class InputReader : ScriptableObject, IPlayerActions
     {
         if (context.performed)
         {
-            PrimaryFireEvent?.Invoke(true);
+            primaryFireEvent?.Invoke(true);
         }
         else if (context.canceled)
         {
-            PrimaryFireEvent?.Invoke(false);
+            primaryFireEvent?.Invoke(false);
         }
     }
 
