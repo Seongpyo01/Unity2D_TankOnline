@@ -11,14 +11,14 @@ public class PlayerAiming : NetworkBehaviour
 
     private Camera mainCamera;
 
-    private void Awake()
-    {
-        mainCamera = Camera.main;
-    }
-
     private void LateUpdate()
     {
         if (!IsOwner) return;
+
+        if(mainCamera == null)
+        {
+            mainCamera = Camera.main;
+        }
 
         Vector2 aimScreenPosition = inputReader.aimPosition;
         Vector2 aimWorldPosition = mainCamera.ScreenToWorldPoint(aimScreenPosition);
